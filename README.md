@@ -65,4 +65,3 @@ stacks in this order, and their CI fails when they drift apart.
 ## Community health files
 
 `SECURITY.md`, `SUPPORT.md` and `PULL_REQUEST_TEMPLATE.md` apply to every repository that does not have its own.
-`profile/README.md` is the page of the organization on GitHub.
