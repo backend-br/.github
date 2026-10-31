@@ -1,0 +1,30 @@
+name: Enable schedules
+
+on:
+  workflow_call:
+
+permissions: {}
+
+jobs:
+  enable-schedules:
+    name: Enable schedules
+    permissions:
+      actions: write
+    runs-on: ubuntu-26.04
+    timeout-minutes: 5
+    steps:
+      - name: Checkout shared scripts
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          repository: backend-br/.github
+          ref: main
+          path: .shared
+          sparse-checkout: scripts
+          persist-credentials: false
+
+      - name: Enable the workflows disabled for inactivity
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+        with:
+          script: |
+            const { run } = await import(`${process.env.GITHUB_WORKSPACE}/.shared/scripts/enable-schedules.mjs`)
+            await run({ github, context })
