@@ -8,18 +8,19 @@ on:
         required: true
         type: string
 
-permissions:
-  issues: write
-  pull-requests: write
+permissions: {}
 
 jobs:
   auto-assign:
     name: Auto assign
+    permissions:
+      issues: write
+      pull-requests: write
     runs-on: ubuntu-26.04
     timeout-minutes: 5
     steps:
       - name: Assign issues and pull requests
-        uses: gustavofreze/auto-assign@2b04688604e1bc6649d9d75c8273b1699c413853 # 3.0.0
+        uses: gustavofreze/auto-assign@2b04688604e1bc6649d9d75c8273b1699c413853
         with:
           assignees: '${{ vars.ASSIGNEES }}'
           github_token: '${{ secrets.GITHUB_TOKEN }}'
