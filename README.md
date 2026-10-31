@@ -1,6 +1,6 @@
 # backend-br/.github
 
-Shared workflows and taxonomy of the [backend-br](https://github.com/backend-br) repositories.
+Shared workflows, taxonomy and community health files of the [backend-br](https://github.com/backend-br) repositories.
 
 ## Workflows
 
@@ -61,3 +61,8 @@ jobs:
 [vagas](https://github.com/backend-br/vagas) and [me-contrata](https://github.com/backend-br/me-contrata). Each entry
 is a label, and its aliases are the other ways the same term is written. The forms of both repositories list the
 stacks in this order, and their CI fails when they drift apart.
+
+## Community health files
+
+`SECURITY.md`, `SUPPORT.md` and `PULL_REQUEST_TEMPLATE.md` apply to every repository that does not have its own.
+`profile/README.md` is the page of the organization on GitHub.
