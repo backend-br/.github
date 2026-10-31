@@ -1,0 +1,28 @@
+name: Auto assign
+
+on:
+  workflow_call:
+    inputs:
+      assignment-options:
+        description: 'Items to assign: ISSUE, PULL_REQUEST or both, separated by a comma.'
+        required: true
+        type: string
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  auto-assign:
+    name: Auto assign
+    runs-on: ubuntu-26.04
+    timeout-minutes: 5
+    steps:
+      - name: Assign issues and pull requests
+        uses: gustavofreze/auto-assign@2b04688604e1bc6649d9d75c8273b1699c413853 # 3.0.0
+        with:
+          assignees: '${{ vars.ASSIGNEES }}'
+          github_token: '${{ secrets.GITHUB_TOKEN }}'
+          allow_self_assign: 'true'
+          allow_no_assignees: 'true'
+          assignment_options: '${{ inputs.assignment-options }}'
